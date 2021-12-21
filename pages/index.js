@@ -1,9 +1,20 @@
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/utility.module.css';
+import App from './Components/weather-app';
+
+
 
 export default function Home() {
+
   return (
     <div>
-      <h1>Hello</h1>
+      <Head>
+        <title>Weather App</title>
+      </Head>
+
+      <div>
+        <App/>
+      </div>
     </div>
   )
 }
