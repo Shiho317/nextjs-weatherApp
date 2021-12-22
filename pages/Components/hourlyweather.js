@@ -9,7 +9,7 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div>
+      <div className="bg-blue-700">
         {hourlyWeather.length > 0 && hourlyWeather.map((weather, index) => (
           <div key={weather.dt}>
             <div>

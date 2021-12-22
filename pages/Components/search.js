@@ -44,7 +44,7 @@ function Search() {
     <React.Fragment>
 
     {isOpen ? (
-      <div>
+      <div className='bg-sky-700'>
       <input type="text" placeholder='city name' value={textValue} onChange={TextValue}/>
       
       <ul>
