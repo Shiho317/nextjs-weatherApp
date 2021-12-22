@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/utility.module.css';
-import App from './Components/weather-app';
+import Search from './Components/Search';
+
 
 
 
@@ -13,7 +14,7 @@ export default function Home() {
       </Head>
 
       <div>
-        <App/>
+        <Search/>
       </div>
     </div>
   )

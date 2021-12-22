@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import cities from '../../lib/city.list.json';
+import Hero from './Hero';
 import Link from 'next/link';
-import Weather from './weather';
-import { FaChevronCircleRight } from "@react-icons/all-files/fa/FaChevronCircleRight";
 
 
-function Search(props) {
+function Search() {
   const [textValue, setTextValue] = useState('');
   const [results, setResults] = useState([]);
 
@@ -27,6 +26,7 @@ function Search(props) {
         if(match){
           const cityData = {
             ...city,
+            slug: `${city.name.toLowerCase().replace(/ /g, "-")}-${city.id}`,
           };
 
           matchingCities.push(cityData);
@@ -37,19 +37,28 @@ function Search(props) {
     return setResults(matchingCities);
   }
 
+  const [isOpen, setIsOpen] = useState(false);
+
+
   return (
-    <div>
+    <React.Fragment>
+
+    {isOpen ? (
+      <div>
       <input type="text" placeholder='city name' value={textValue} onChange={TextValue}/>
       
-          
       <ul>
       {results.length > 0 ? (
-        results.map((city, index) => {
+        results.map((city) => {
           return(
-            <li key={index} onClick={props.getWeather}>
+            <li key={city.slug}>
+              <Link href={`/location/${city.slug}`}>
+              <a>
                 {city.name}
-                {city.state ? `, ${city.state}, ` : ','}
-                <span>{city.country}</span>
+                {city.state ? `, ${city.state} ` : ""}{" "}
+                <span>({city.country})</span>
+              </a>
+              </Link>
             </li>
           )
           
@@ -60,7 +69,13 @@ function Search(props) {
           </li>
       )}
       </ul>
-    </div>
+      </div>
+    ) : (
+      <Hero setIsOpen={setIsOpen}/>
+    )}
+    
+
+    </React.Fragment>
   )
 }
 
