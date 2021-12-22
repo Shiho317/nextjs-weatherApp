@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment-timezone';
 import 'weather-icons/css/weather-icons.css';
 
@@ -17,11 +17,11 @@ export default function Current({city, weeklyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div>
-        <div>
-        <h1>{city.name} ({city.country})</h1>
+      <div className='grid grid-rows-10 grid-cols-1'>
+        <div className='bg-yellow-100 row-span-2'>
+        <h1 className='text-xl text-center'>{city.name} ({city.country})</h1>
         </div>
-        <div>
+        <div className='text-center bg-yellow-200 text-4xl row-span-3'>
           {weatherIcon >= 200 && weatherIcon <= 232 ? (
             <i className='wi wi-thunderstorm'/>
           ) : weatherIcon >= 300 && weatherIcon <= 321 ? (
@@ -38,30 +38,33 @@ export default function Current({city, weeklyWeather, timezone}) {
             <i className='wi wi-day-fog'/>
           )}
         </div>
-        <div>
+        <div className='text-center bg-yellow-300 text-sm row-span-1'>
+          {weeklyWeather.weather[0].description}
+        </div>
+        <div className='text-center text-30 bg-yellow-400 text-xl row-span-2'>
           {tzHour >= 5 && tzHour < 12 ? (weeklyWeather.temp.morn.toFixed(0))
           : tzHour >= 12 && tzHour < 17 ? (weeklyWeather.temp.day.toFixed(0))
           : tzHour >= 17 && tzHour < 21 ? (weeklyWeather.temp.eve.toFixed(0))
           : (weeklyWeather.temp.night.toFixed(0))}
         </div>
-        <div>
-          {weeklyWeather.temp.max.toFixed(0)}&deg;
+        <div className='flex justify-center gap-10 bg-yellow-500 row-span-1'>
+          <div>
+            H:{weeklyWeather.temp.max.toFixed(0)}&deg;
+          </div>
+          <div>
+            L:{weeklyWeather.temp.min.toFixed(0)}&deg;
+          </div>
         </div>
-        <div>
-          {weeklyWeather.temp.min.toFixed(0)}&deg;
+        <div className='flex justify-around bg-yellow-600 row-span-1'>
+          <div>
+            <span className='text-xs'><i className='wi wi-horizon-alt'/></span>
+            {moment.unix(weeklyWeather.sunrise).tz(timezone).format("LT")}
+          </div>
+          <div>
+            <span className='text-xs'><i className='wi wi-horizon'/></span>
+            {moment.unix(weeklyWeather.sunset).tz(timezone).format("LT")}
+          </div>
         </div>
-        <div>
-          {moment.unix(weeklyWeather.sunrise).tz(timezone).format("LT")}
-        </div>
-        <div>
-          {moment.unix(weeklyWeather.sunset).tz(timezone).format("LT")}
-        </div>
-      </div>
-      <div>
-        <div>
-          {weeklyWeather.weather[0].description}
-        </div>
-          
       </div>
     </React.Fragment>
   )

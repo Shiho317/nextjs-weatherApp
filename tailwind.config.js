@@ -1,15 +1,18 @@
 module.exports = {
   mode: "jit",
   content: [
-    "./pages/location/[city].js",
-    "./pages/Components/search.js",
-    "./pages/Components/weeklyWeather.js",
-    "./pages/Components/current.js",
-    "./pages/Components/hero.js",
-    "./pages/Components/hourlyweather.js"
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./Components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      translate: {
+        '55': '-50%'
+      },
+      backgroundImage: {
+        'top-image': "url('../images/home-img.jpg')",
+      },
+    },
   },
   plugins: [],
 }

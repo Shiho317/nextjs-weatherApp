@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import cities from '../../lib/city.list.json';
+import cities from '../lib/city.list.json';
 import Hero from './Hero';
 import Link from 'next/link';
 
 
-function Search() {
+function SearchBox() {
   const [textValue, setTextValue] = useState('');
   const [results, setResults] = useState([]);
 
@@ -39,19 +39,21 @@ function Search() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-
   return (
     <React.Fragment>
-
+    <div className='bg-top-image bg-cover bg-center h-screen' >
     {isOpen ? (
-      <div className='bg-sky-700'>
-      <input type="text" placeholder='city name' value={textValue} onChange={TextValue}/>
+      <div className='bg-white/50 block text-center absolute top-2/4 left-2/4 translate-x-55'>
+        <div>
+          <input className='text-center bg-white' type="text" placeholder='Search your city' value={textValue} onChange={TextValue}/>
+        </div>
       
-      <ul>
+      
+      <ul className='text-sm'>
       {results.length > 0 ? (
         results.map((city) => {
           return(
-            <li key={city.slug}>
+            <li className='hover:bg-black/50 hover:text-white' key={city.slug}>
               <Link href={`/location/${city.slug}`}>
               <a>
                 {city.name}
@@ -64,19 +66,19 @@ function Search() {
           
         })
       ) : (
-          <li>
+          <li className='text-xs text-center'>
             No results found
           </li>
       )}
       </ul>
       </div>
     ) : (
-      <Hero setIsOpen={setIsOpen}/>
+        <Hero setIsOpen={setIsOpen}/>
     )}
-    
 
+    </div>
     </React.Fragment>
   )
 }
 
-export default Search
+export default SearchBox

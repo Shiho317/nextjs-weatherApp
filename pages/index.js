@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/utility.module.css';
-import Search from './Components/Search';
+import SearchBox from '../Components/searchBox';
 
 
 
@@ -14,7 +13,7 @@ export default function Home() {
       </Head>
 
       <div>
-        <Search/>
+        <SearchBox/>
       </div>
     </div>
   )

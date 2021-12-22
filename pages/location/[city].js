@@ -1,11 +1,11 @@
 import React from 'react';
 import cities from '../../lib/city.list.json';
 import Head from 'next/head';
-import Current from '../Components/current';
-import Hourlyweather from '../Components/hourlyweather';
-import WeeklyWeather from '../Components/weeklyWeather';
+import Current from '../../Components/current';
+import Hourlyweather from '../../Components/hourlyweather';
+import WeeklyWeather from '../../Components/weeklyWeather';
 import moment from 'moment-timezone';
-import Search from '../Components/Search';
+import Search from '../../Components/searchBox';
 
 export async function getServerSideProps(context){
   const city = getCityId(context.params.city);
