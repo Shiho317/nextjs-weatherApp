@@ -4,8 +4,6 @@ import 'weather-icons/css/weather-icons.css';
 
 export default function WeeklyWeather({weeklyWeather, timezone}) {
 
-  console.log(weeklyWeather)
-
   return (
     <React.Fragment>
       <div>
@@ -15,7 +13,7 @@ export default function WeeklyWeather({weeklyWeather, timezone}) {
               return;
             }else{
               return (
-                <div key={weather.dt}>
+                <div className='grid grid-cols-3 m-2 items-center text-center' key={weather.dt}>
                   <div>
                     {moment.unix(weather.dt).tz(timezone).format("dddd")}
                   </div>
@@ -24,21 +22,27 @@ export default function WeeklyWeather({weeklyWeather, timezone}) {
                       <i className='wi wi-thunderstorm'/>
                     ) : weather.weather[0].id >= 300 && weather.weather[0].id <= 321 ? (
                       <i className='wi wi-sleet'/>
+                    ) : weather.weather[0].id >= 500 && weather.weather[0].id <= 531 ? (
+                      <i className='wi wi-rain'/>
                     ) : weather.weather[0].id >= 600 && weather.weather[0].id <= 622 ? (
-                      <i className='wi wi-storm-showers'/>
-                    ) : weather.weather[0].id >= 701 && weather.weather[0].id <= 781 ? (
                       <i className='wi wi-snow'/>
-                    ) : weather.weather[0].id === 800 ? (
+                    ) : weather.weather[0].id >= 701 && weather.weather[0].id <= 781 ? (
                       <i className='wi wi-fog'/>
-                    ) : weather.weather[0].id >= 801 && weather.weather[0].id <= 804 ? (
+                    ) : weather.weather[0].id === 800 ? (
                       <i className='wi wi-day-sunny'/>
+                    ) : weather.weather[0].id >= 801 && weather.weather[0].id <= 804 ? (
+                      <i className='wi wi-cloudy'/>
                     ) : (
-                      <i className='wi wi-day-fog'/>
+                      <i className='wi wi-cloudy'/>
                     )}
                   </div>
-                  <div>
-                    {weather.temp.max.toFixed(0)}&deg;
-                    {weather.temp.min.toFixed(0)}&deg;
+                  <div className='flex justify-center gap-5'>
+                    <div>
+                      {weather.temp.max.toFixed(0)}&deg;
+                    </div>
+                    <div>
+                      {weather.temp.min.toFixed(0)}&deg;
+                    </div>
                   </div>
                 </div>
               )

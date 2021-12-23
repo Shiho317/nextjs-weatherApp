@@ -77,7 +77,7 @@ function SearchBox() {
       </ul>
       </div>
     ) : (
-      <div className='flex justify-center gap-5 text-center absolute top-2/4 left-2/4 translate-x-55 w-screen'>
+      <div className='flex justify-center gap-1 text-center absolute top-2/4 left-2/4 translate-x-55 w-screen'>
         <Hero/>
         <SearchIcon setIsOpen={setIsOpen}/>
       </div>

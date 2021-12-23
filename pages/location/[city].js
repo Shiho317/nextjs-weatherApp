@@ -28,7 +28,7 @@ export async function getServerSideProps(context){
 
   const hourlyWeather = getHourlyWeather(data.hourly, data.timezone);
   const weeklyWeather = data.daily;
-
+  
   return{
     props: {
       city: city,
@@ -74,15 +74,29 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
         <title>Weather App - {city.name}</title>
       </Head>
 
-      <div>
-        <div className='bg-red-500 w-screen overflow-x-scroll'>
-          <Search/>
+      <div className={weeklyWeather[0].weather[0].id > 200 && weeklyWeather[0].weather[0].id <= 232 ? 
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id >= 300 && weeklyWeather[0].weather[0].id <= 321 ? 
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id >= 500 && weeklyWeather[0].weather[0].id <= 531 ?
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id >= 600 && weeklyWeather[0].weather[0].id <= 622 ? 
+        'w-screen h-screen bg-snow-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id >= 701 && weeklyWeather[0].weather[0].id <= 781 ? 
+        'w-screen h-screen bg-fog-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id === 800 ? 
+        'w-screen h-screen bg-clear-day bg-cover bg-center px-3'
+        : weeklyWeather[0].weather[0].id >= 801 && weeklyWeather[0].weather[0].id <= 804 ? 
+          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
+        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
+        }>
+
+        <div className='bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl'>
           <Current city={city} weeklyWeather={weeklyWeather[0]} timezone={timezone} />
           <Hourlyweather hourlyWeather={hourlyWeather} timezone={timezone}/>
           <WeeklyWeather weeklyWeather={weeklyWeather} timezone={timezone}/>
         </div>
       </div>
-      
     </React.Fragment>
   )
 }
