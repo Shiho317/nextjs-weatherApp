@@ -75,7 +75,7 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
       </Head>
 
       <div>
-        <div>
+        <div className='bg-red-500 w-screen overflow-x-scroll'>
           <Search/>
           <Current city={city} weeklyWeather={weeklyWeather[0]} timezone={timezone} />
           <Hourlyweather hourlyWeather={hourlyWeather} timezone={timezone}/>

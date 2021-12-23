@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import cities from '../lib/city.list.json';
-import Hero from './Hero';
 import Link from 'next/link';
-
+import Hero from './hero';
+import SearchIcon from './SearchIcon';
+import HeroIntro from './hero-intro';
 
 function SearchBox() {
   const [textValue, setTextValue] = useState('');
@@ -41,11 +42,14 @@ function SearchBox() {
 
   return (
     <React.Fragment>
-    <div className='bg-top-image bg-cover bg-center h-screen' >
+    <div className='bg-top-image bg-cover bg-center h-screen'>
+      <div className='block text-center absolute top-28 items-center w-screen'>
+        <HeroIntro/>
+      </div>
     {isOpen ? (
-      <div className='bg-white/50 block text-center absolute top-2/4 left-2/4 translate-x-55'>
+      <div className='bg-white/50 block text-center absolute top-2/4 left-2/4 translate-x-55 font-main'>
         <div>
-          <input className='text-center bg-white' type="text" placeholder='Search your city' value={textValue} onChange={TextValue}/>
+          <input className='text-center bg-white text-xs py-1 px-3 outline-gray-200' type="text" placeholder='Search your city' value={textValue} onChange={TextValue}/>
         </div>
       
       
@@ -73,7 +77,10 @@ function SearchBox() {
       </ul>
       </div>
     ) : (
-        <Hero setIsOpen={setIsOpen}/>
+      <div className='flex justify-center gap-5 text-center absolute top-2/4 left-2/4 translate-x-55 w-screen'>
+        <Hero/>
+        <SearchIcon setIsOpen={setIsOpen}/>
+      </div>
     )}
 
     </div>

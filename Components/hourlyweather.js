@@ -9,9 +9,9 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div>
+      <div className='bg-yellow-500 w-screen overflow-x-scroll flex'>
         {hourlyWeather.length > 0 && hourlyWeather.map((weather, index) => (
-          <div key={weather.dt}>
+          <div className='block text-center bg-sky-700' key={weather.dt}>
             <div>
             {index === 0 ? (
               <div>Now</div>
@@ -42,7 +42,6 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
           </div>
           
         ))}
-        
       </div>
     </React.Fragment>
   )
