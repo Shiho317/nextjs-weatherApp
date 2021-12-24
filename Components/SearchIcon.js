@@ -9,7 +9,7 @@ export default function SearchIcon({setIsOpen}) {
 
   return (
     <React.Fragment>
-        <div className='grid items-center text-white cursor-pointer' onClick={IsOpen}>
+        <div className='grid items-center text-white cursor-pointer md:text-md lg:text-xl' onClick={IsOpen}>
           <FiSearch/>
         </div>
     </React.Fragment>

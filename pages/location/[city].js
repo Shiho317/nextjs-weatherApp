@@ -7,6 +7,7 @@ import WeeklyWeather from '../../Components/weeklyWeather';
 import moment from 'moment-timezone';
 import SearchBox from '../../Components/searchBox';
 import { FiSearch } from "@react-icons/all-files/fi/FiSearch";
+import CityName from '../../Components/cityName';
 
 export async function getServerSideProps(context){
   const city = getCityId(context.params.city);
@@ -83,41 +84,47 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
       </Head>
 
       <div className={weeklyWeather[0].weather[0].id > 200 && weeklyWeather[0].weather[0].id <= 232 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id >= 300 && weeklyWeather[0].weather[0].id <= 321 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id >= 500 && weeklyWeather[0].weather[0].id <= 531 ?
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id >= 600 && weeklyWeather[0].weather[0].id <= 622 ? 
-        'w-screen h-screen bg-snow-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-snow-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id >= 701 && weeklyWeather[0].weather[0].id <= 781 ? 
-        'w-screen h-screen bg-fog-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-fog-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id === 800 ? 
-        'w-screen h-screen bg-clear-day bg-cover bg-center px-3'
+        'w-screen h-screen bg-clear-day bg-cover bg-center px-3 lg:px-20'
         : weeklyWeather[0].weather[0].id >= 801 && weeklyWeather[0].weather[0].id <= 804 ? 
-          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
-        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
+          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20'
+        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20'
         }>
 
         <div className='absolute top-10px z-50'>
           {isToggle ? (
             <div className='flex justify-center gap-1 text-center transition-all duration-1000 ease'>
               <SearchBox/>
-              <div className='grid items-center text-white cursor-pointer' onClick={IsToggle}>
+              <div className='grid items-center text-white cursor-pointer md:text-md lg:text-xl' onClick={IsToggle}>
                 <FiSearch/>
               </div>
             </div>
           ) : (
-            <div className='absolute top-10px text-white cursor-pointer transition-transform duration-1000 ease' onClick={IsToggle}>
+            <div className='absolute top-10px text-white cursor-pointer transition-transform duration-1000 ease md:text-md lg:text-xl' onClick={IsToggle}>
               <FiSearch/>
             </div>
           )}
         </div>
 
-        <div className='bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl'>
-          <Current city={city} weeklyWeather={weeklyWeather[0]} timezone={timezone} />
-          <Hourlyweather hourlyWeather={hourlyWeather} timezone={timezone}/>
+        <div className='bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl
+                        lg:bg-transparent'>
+          <CityName city={city}/>
+          <div className='lg:grid lg:grid-cols-2'>
+          <div className='lg:block'>
+            <Current city={city} weeklyWeather={weeklyWeather[0]} timezone={timezone} />
+            <Hourlyweather hourlyWeather={hourlyWeather} timezone={timezone}/>
+          </div>
           <WeeklyWeather weeklyWeather={weeklyWeather} timezone={timezone}/>
+        </div>
         </div>
       </div>
     </React.Fragment>

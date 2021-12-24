@@ -6,19 +6,20 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div className='overflow-x-scroll flex'>
+      <div className='overflow-x-scroll flex lg:row-span-2 lg:col-span-1 lg:bg-black/30 lg:mr-3 lg:rounded-md'>
         {hourlyWeather.length > 0 && hourlyWeather.map((weather, index) => (
-          <div className='grid grid-rows-3 items-center text-center bg-black/50 m-2 rounded-lg' key={weather.dt}>
+          <div className='grid grid-rows-3 items-center text-center bg-black/50 m-2 rounded-lg
+                          lg:bg-white/50' key={weather.dt}>
             <div className='w-20'>
             {index === 0 ? (
-              <div className='text-base text-white'>Now</div>
+              <div className='text-base text-white lg:text-black'>Now</div>
             ) : (
-              <div className='text-sm text-white'>
+              <div className='text-sm text-white lg:text-black'>
               {moment.unix(weather.dt).tz(timezone).format("LT")}
               </div>
             )}
             </div>
-            <div className='text-xl text-white'>
+            <div className='text-xl text-white lg:text-black'>
               {weather.weather[0].id >= 200 && weather.weather[0].id <= 232 ? (
                 <i className='wi wi-thunderstorm'/>
               ) : weather.weather[0].id >= 300 && weather.weather[0].id <= 321 ? (
@@ -37,7 +38,7 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
                 <i className='wi wi-cloudy'/>
               )}
             </div>
-            <div className='text-sm text-white'>{weather.temp.toFixed(0)}&deg;</div>
+            <div className='text-sm text-white lg:text-black'>{weather.temp.toFixed(0)}&deg;</div>
           </div>
           
         ))}

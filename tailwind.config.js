@@ -7,7 +7,10 @@ module.exports = {
     "./Components/current.js",
     "./Components/hourlyweather.js",
     "./Components/searchBox.js",
+    "./Components/search.js",
+    "./Components/SearchIcon.js",
     "./Components/weeklyWeather.js",
+    "./Components/cityName.js",
   ],
   theme: {
     extend: {

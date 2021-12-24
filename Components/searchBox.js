@@ -40,11 +40,11 @@ export default function SearchBox() {
     <React.Fragment>
       <div className='bg-white/50 block text-center font-main'>
         <div>
-          <input className='text-center bg-white text-xs py-1 px-3 outline-gray-200' type="text" placeholder='Search your city' value={textValue} onChange={TextValue}/>
+          <input className='text-center bg-white text-xs py-1 px-3 outline-gray-200 md:text-base lg:px-9' type="text" placeholder='Search your city' value={textValue} onChange={TextValue}/>
         </div>
   
   
-      <ul className='text-sm'>
+      <ul className='text-sm md:text-base'>
       {results.length > 0 ? (
       results.map((city) => {
         return(
@@ -60,7 +60,7 @@ export default function SearchBox() {
         )
       })
       ) : (
-      <li className='text-xs text-center'>
+      <li className='text-xs text-center md:text-md lg:text-base'>
         No results found
       </li>
       )}
