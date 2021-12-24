@@ -2,10 +2,10 @@ import React from 'react';
 import { FiSearch } from "@react-icons/all-files/fi/FiSearch";
 
 export default function SearchIcon({setIsOpen}) {
-
+  
   const IsOpen = () => {
     setIsOpen(true)
-  }
+  };
 
   return (
     <React.Fragment>

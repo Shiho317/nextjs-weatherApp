@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cities from '../../lib/city.list.json';
 import Head from 'next/head';
 import Current from '../../Components/current';
 import Hourlyweather from '../../Components/hourlyweather';
 import WeeklyWeather from '../../Components/weeklyWeather';
 import moment from 'moment-timezone';
-import Search from '../../Components/searchBox';
+import SearchBox from '../../Components/searchBox';
+import { FiSearch } from "@react-icons/all-files/fi/FiSearch";
 
 export async function getServerSideProps(context){
   const city = getCityId(context.params.city);
@@ -68,6 +69,13 @@ const getHourlyWeather = (hourlyData, timezone) => {
 };
 
 export default function City({city, currentWeather, weeklyWeather, hourlyWeather, timezone}) {
+
+  const [isToggle, setIsToggle] = useState(false);
+
+  const IsToggle = () => {
+    setIsToggle(prev => !prev)
+  };
+
   return (
     <React.Fragment>
       <Head>
@@ -90,6 +98,21 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
           'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
         : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3'
         }>
+
+        <div className='absolute top-10px z-50'>
+          {isToggle ? (
+            <div className='flex justify-center gap-1 text-center transition-all duration-1000 ease'>
+              <SearchBox/>
+              <div className='grid items-center text-white cursor-pointer' onClick={IsToggle}>
+                <FiSearch/>
+              </div>
+            </div>
+          ) : (
+            <div className='absolute top-10px text-white cursor-pointer transition-transform duration-1000 ease' onClick={IsToggle}>
+              <FiSearch/>
+            </div>
+          )}
+        </div>
 
         <div className='bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl'>
           <Current city={city} weeklyWeather={weeklyWeather[0]} timezone={timezone} />

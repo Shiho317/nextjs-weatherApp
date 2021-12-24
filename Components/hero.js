@@ -1,6 +1,4 @@
 import React from 'react';
-import HeroIntro from './hero-intro';
-import SearchIcon from './SearchIcon';
 
 function Hero() {
 

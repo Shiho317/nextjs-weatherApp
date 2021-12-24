@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import SearchBox from '../Components/searchBox';
+import Search from '../Components/search';
 
 
 
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <div>
-        <SearchBox/>
+        <Search/>
       </div>
     </div>
   )
