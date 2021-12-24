@@ -33,7 +33,7 @@ export default function Current({city, weeklyWeather, timezone}) {
             <i className='wi wi-cloudy'/>
           )}
         </div>
-        <div className='text-center text-sm lg:text-lg lg:text-white'>
+        <div className='text-center font-main text-sm lg:text-lg lg:text-white'>
           {weeklyWeather.weather[0].description}
         </div>
         <div className='text-center text-30 text-2xl lg:text-4xl lg:text-white'>
@@ -42,7 +42,7 @@ export default function Current({city, weeklyWeather, timezone}) {
           : tzHour >= 17 && tzHour < 21 ? (weeklyWeather.temp.eve.toFixed(0))
           : (weeklyWeather.temp.night.toFixed(0))}&deg;
         </div>
-        <div className='py-1 flex justify-center gap-10 lg:text-white lg:text-lg'>
+        <div className='font-main py-1 flex justify-center gap-10 lg:text-white lg:text-lg'>
           <div>
             H:{weeklyWeather.temp.max.toFixed(0)}&deg;
           </div>
@@ -51,11 +51,11 @@ export default function Current({city, weeklyWeather, timezone}) {
           </div>
         </div>
         <div className='flex justify-around p-1'>
-          <div className='text-sm lg:text-lg lg:text-white'>
+          <div className='font-main text-sm lg:text-lg lg:text-white'>
             <span className='text-xs mr-1 lg:text-base lg:text-white'><i className='wi wi-horizon-alt'/></span>
             {moment.unix(weeklyWeather.sunrise).tz(timezone).format("LT")}
           </div>
-          <div className='text-sm lg:text-lg lg:text-white'>
+          <div className='font-main text-sm lg:text-lg lg:text-white'>
             <span className='text-xs mr-1 lg:text-base lg:text-white'><i className='wi wi-horizon'/></span>
             {moment.unix(weeklyWeather.sunset).tz(timezone).format("LT")}
           </div>

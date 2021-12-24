@@ -84,32 +84,32 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
       </Head>
 
       <div className={weeklyWeather[0].weather[0].id > 200 && weeklyWeather[0].weather[0].id <= 232 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
         : weeklyWeather[0].weather[0].id >= 300 && weeklyWeather[0].weather[0].id <= 321 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
         : weeklyWeather[0].weather[0].id >= 500 && weeklyWeather[0].weather[0].id <= 531 ?
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
         : weeklyWeather[0].weather[0].id >= 600 && weeklyWeather[0].weather[0].id <= 622 ? 
-        'w-screen h-screen bg-snow-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-snow-day bg-cover bg-center px-3 lg:px-20 dark:bg-snow-night'
         : weeklyWeather[0].weather[0].id >= 701 && weeklyWeather[0].weather[0].id <= 781 ? 
-        'w-screen h-screen bg-fog-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-fog-day bg-cover bg-center px-3 lg:px-20 dark:bg-fog-night'
         : weeklyWeather[0].weather[0].id === 800 ? 
-        'w-screen h-screen bg-clear-day bg-cover bg-center px-3 lg:px-20'
+        'w-screen h-screen bg-clear-day bg-cover bg-center px-3 lg:px-20 dark:bg-clear-night'
         : weeklyWeather[0].weather[0].id >= 801 && weeklyWeather[0].weather[0].id <= 804 ? 
-          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20'
-        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20'
+          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20 dark:bg-cloud-night'
+        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20 dark:bg-cloud-night'
         }>
 
         <div className='absolute top-10px z-50'>
           {isToggle ? (
             <div className='flex justify-center gap-1 text-center transition-all duration-1000 ease'>
               <SearchBox/>
-              <div className='grid items-center text-white cursor-pointer md:text-md lg:text-xl' onClick={IsToggle}>
+              <div className='grid items-center text-black cursor-pointer md:text-md lg:text-xl lg:text-white' onClick={IsToggle}>
                 <FiSearch/>
               </div>
             </div>
           ) : (
-            <div className='absolute top-10px text-white cursor-pointer transition-transform duration-1000 ease md:text-md lg:text-xl' onClick={IsToggle}>
+            <div className='absolute top-10px text-black cursor-pointer transition-transform duration-1000 ease md:text-md lg:text-xl lg:text-white' onClick={IsToggle}>
               <FiSearch/>
             </div>
           )}

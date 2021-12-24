@@ -1,5 +1,6 @@
 module.exports = {
   mode: "jit",
+  darkMode: 'media',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./Components/hero.js",

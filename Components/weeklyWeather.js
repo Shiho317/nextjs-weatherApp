@@ -13,7 +13,7 @@ export default function WeeklyWeather({weeklyWeather, timezone}) {
               return;
             }else{
               return (
-                <div className='grid grid-cols-3 m-2 items-center text-center lg:text-xl lg:my-10 lg:text-white' key={weather.dt}>
+                <div className='grid grid-cols-3 m-2 items-center text-center font-main lg:text-xl lg:my-10 lg:text-white' key={weather.dt}>
                   <div>
                     {moment.unix(weather.dt).tz(timezone).format("dddd")}
                   </div>

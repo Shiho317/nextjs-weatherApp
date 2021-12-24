@@ -8,13 +8,13 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
     <React.Fragment>
       <div className='overflow-x-scroll flex lg:row-span-2 lg:col-span-1 lg:bg-black/30 lg:mr-3 lg:rounded-md'>
         {hourlyWeather.length > 0 && hourlyWeather.map((weather, index) => (
-          <div className='grid grid-rows-3 items-center text-center bg-black/50 m-2 rounded-lg
+          <div className='grid grid-rows-3 items-center text-center bg-black/50 m-2 rounded-md
                           lg:bg-white/50' key={weather.dt}>
             <div className='w-20'>
             {index === 0 ? (
-              <div className='text-base text-white lg:text-black'>Now</div>
+              <div className='font-main text-base text-white lg:text-black'>Now</div>
             ) : (
-              <div className='text-sm text-white lg:text-black'>
+              <div className='font-main text-sm text-white lg:text-black'>
               {moment.unix(weather.dt).tz(timezone).format("LT")}
               </div>
             )}
@@ -38,7 +38,7 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
                 <i className='wi wi-cloudy'/>
               )}
             </div>
-            <div className='text-sm text-white lg:text-black'>{weather.temp.toFixed(0)}&deg;</div>
+            <div className='font-main text-sm text-white lg:text-black'>{weather.temp.toFixed(0)}&deg;</div>
           </div>
           
         ))}
