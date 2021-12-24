@@ -77,6 +77,17 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
     setIsToggle(prev => !prev)
   };
 
+  const now = new Date();
+  const Hour = now.getHours();
+  const tzHour = Number(moment(Hour, 'HH').tz(timezone).format("HH"));
+  console.log(tzHour)
+
+  const sunrise = Number(moment.unix(weeklyWeather[0].sunrise, 'H').tz(timezone).format("H"));
+  console.log(sunrise)
+
+  const sunset = Number(moment.unix(weeklyWeather[0].sunset, 'HH').tz(timezone).format("HH"));
+  console.log(sunset)
+
   return (
     <React.Fragment>
       <Head>
@@ -84,20 +95,27 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
       </Head>
 
       <div className={weeklyWeather[0].weather[0].id > 200 && weeklyWeather[0].weather[0].id <= 232 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-rain-night bg-cover bg-center px-3 lg:px-20` 
         : weeklyWeather[0].weather[0].id >= 300 && weeklyWeather[0].weather[0].id <= 321 ? 
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-rain-night bg-cover bg-center px-3 lg:px-20`
         : weeklyWeather[0].weather[0].id >= 500 && weeklyWeather[0].weather[0].id <= 531 ?
-        'w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20 dark:bg-rain-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-rain-day bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-rain-night bg-cover bg-center px-3 lg:px-20`
         : weeklyWeather[0].weather[0].id >= 600 && weeklyWeather[0].weather[0].id <= 622 ? 
-        'w-screen h-screen bg-snow-day bg-cover bg-center px-3 lg:px-20 dark:bg-snow-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-snow-day bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-snow-night bg-cover bg-center px-3 lg:px-20`
         : weeklyWeather[0].weather[0].id >= 701 && weeklyWeather[0].weather[0].id <= 781 ? 
-        'w-screen h-screen bg-fog-day bg-cover bg-center px-3 lg:px-20 dark:bg-fog-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-fog-day bg-cover bg-center px-3 lg:px-20`
+        :`w-screen h-screen bg-fog-night bg-cover bg-center px-3 lg:px-20`
         : weeklyWeather[0].weather[0].id === 800 ? 
-        'w-screen h-screen bg-clear-day bg-cover bg-center px-3 lg:px-20 dark:bg-clear-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-clear-day bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-clear-night bg-cover bg-center px-3 lg:px-20`
         : weeklyWeather[0].weather[0].id >= 801 && weeklyWeather[0].weather[0].id <= 804 ? 
-          'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20 dark:bg-cloud-night'
-        : 'w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20 dark:bg-cloud-night'
+        tzHour > sunrise && tzHour < sunset ? `w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20`
+        :`w-screen h-screen bg-cloud-night bg-cover bg-center px-3 lg:px-20`
+        : `w-screen h-screen bg-cloud-day bg-cover bg-center px-3 lg:px-20`
         }>
 
         <div className='absolute top-10px z-50'>

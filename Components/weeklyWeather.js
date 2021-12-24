@@ -6,14 +6,14 @@ export default function WeeklyWeather({weeklyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div className='lg:bg-black/30 lg:rounded-md'>
+      <div className='lg:bg-white/30 lg:rounded-md'>
         <div>
           {weeklyWeather.length > 0 && weeklyWeather.map((weather, index) => {
             if(index === 0){
               return;
             }else{
               return (
-                <div className='grid grid-cols-3 m-2 items-center text-center font-main lg:text-xl lg:my-10 lg:text-white' key={weather.dt}>
+                <div className='grid grid-cols-3 m-2 items-center text-center font-main lg:text-xl lg:my-10 lg:text-black' key={weather.dt}>
                   <div>
                     {moment.unix(weather.dt).tz(timezone).format("dddd")}
                   </div>
