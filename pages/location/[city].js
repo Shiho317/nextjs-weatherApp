@@ -69,7 +69,7 @@ const getHourlyWeather = (hourlyData, timezone) => {
   return todaysData;
 };
 
-export default function City({city, currentWeather, weeklyWeather, hourlyWeather, timezone}) {
+export default function City({city, weeklyWeather, hourlyWeather, timezone}) {
 
   const [isToggle, setIsToggle] = useState(false);
 
@@ -80,13 +80,10 @@ export default function City({city, currentWeather, weeklyWeather, hourlyWeather
   const now = new Date();
   const Hour = now.getHours();
   const tzHour = Number(moment(Hour, 'HH').tz(timezone).format("HH"));
-  console.log(tzHour)
 
   const sunrise = Number(moment.unix(weeklyWeather[0].sunrise, 'H').tz(timezone).format("H"));
-  console.log(sunrise)
 
   const sunset = Number(moment.unix(weeklyWeather[0].sunset, 'HH').tz(timezone).format("HH"));
-  console.log(sunset)
 
   return (
     <React.Fragment>
