@@ -1,17 +1,9 @@
 module.exports = {
   mode: "jit",
   darkMode: 'media',
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./Components/hero.js",
-    "./Components/hero-intro.js",
-    "./Components/current.js",
-    "./Components/hourlyweather.js",
-    "./Components/searchBox.js",
-    "./Components/search.js",
-    "./Components/SearchIcon.js",
-    "./Components/weeklyWeather.js",
-    "./Components/cityName.js",
+  purge:  [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './Components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
