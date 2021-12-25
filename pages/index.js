@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <div>
       <Head>
+        <link rel='icon' href='/favicon.png' />
         <title>Weather App</title>
       </Head>
 
