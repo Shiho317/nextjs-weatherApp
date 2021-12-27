@@ -6,7 +6,7 @@ export default function WeeklyWeather({weeklyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div className='lg:bg-white/30 lg:rounded-md lg:backdrop-blur-sm'>
+      <div className='lg:bg-white/30 lg:rounded-md'>
         <div>
           {weeklyWeather.length > 0 && weeklyWeather.map((weather, index) => {
             if(index === 0){

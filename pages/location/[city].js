@@ -130,7 +130,7 @@ export default function City({city, weeklyWeather, hourlyWeather, timezone}) {
           )}
         </div>
 
-        <div className='backdrop-blur-sm bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl
+        <div className='bg-white/30 relative top-2/4 translate-y-55 py-5 px-3 rounded-2xl
                         lg:bg-transparent'>
           <CityName city={city}/>
           <div className='lg:grid lg:grid-cols-2'>
