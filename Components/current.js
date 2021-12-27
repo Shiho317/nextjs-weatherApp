@@ -12,7 +12,7 @@ export default function Current({weeklyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div className='grid grid-rows-8 grid-cols-1 lg:bg-white/30 lg:rounded-md lg:mr-3 lg:mb-3 lg:p-20'>
+      <div className='grid grid-rows-8 grid-cols-1 lg:bg-white/30 lg:rounded-md lg:mr-3 lg:mb-3 lg:p-20 lg:backdrop-blur-sm'>
         <div className='text-center text-5xl p-2 lg:text-7xl lg:text-black'>
           {weatherIcon >= 200 && weatherIcon <= 232 ? (
             <i className='wi wi-thunderstorm'/>

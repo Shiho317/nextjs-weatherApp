@@ -4,7 +4,7 @@ import SearchIcon from './SearchIcon';
 import HeroIntro from './hero-intro';
 import SearchBox from './searchBox';
 
-function Search() {
+export default function Search() {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,4 +30,3 @@ function Search() {
   )
 }
 
-export default Search

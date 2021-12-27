@@ -6,7 +6,7 @@ export default function Hourlyweather({hourlyWeather, timezone}) {
 
   return (
     <React.Fragment>
-      <div className='overflow-x-scroll flex lg:row-span-2 lg:col-span-1 lg:bg-white/30 lg:mr-3 lg:rounded-md lg:p-8px'>
+      <div className='overflow-x-scroll flex lg:row-span-2 lg:col-span-1 lg:bg-white/30 lg:mr-3 lg:rounded-md lg:p-8px lg:backdrop-blur-sm'>
         {hourlyWeather.length > 0 && hourlyWeather.map((weather, index) => (
           <div className='grid grid-rows-3 items-center text-center bg-black/50 m-2 rounded-md
                           lg:bg-white/50' key={weather.dt}>
