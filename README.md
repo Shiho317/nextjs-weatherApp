@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App
 
-## Getting Started
+### Contents
 
-First, run the development server:
+- City name (Country)
+- Current weather
+- Current temperature
+- Highest temperature
+- Lowest temperature
+- Sunrise time
+- Sunset time
+- Hourly weather
+- Weekly weather
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![demo-1](https://user-images.githubusercontent.com/88401910/147526495-0ae82c71-b3a0-4ebb-8946-53392ad2a795.jpg)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![demo-2](https://user-images.githubusercontent.com/88401910/147526502-5dbcc43d-af28-40f4-8804-3ee6d5c8f2b2.jpg)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Languages/Frameworks
 
-## Learn More
+`Next.js`, `Tailwind Css`, `Openweather API`
 
-To learn more about Next.js, take a look at the following resources:
+## Published
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`vercel`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## About
 
-## Deploy on Vercel
+:white_check_mark: A web application that tells the current weather, hourly weather, weekly weather and temperatures in a specific city.  
+:white_check_mark: The background image is changed. It depends on current weather and local time.  
+:white_check_mark: Built with Next.js and Tailwind css, Open Weather API.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
